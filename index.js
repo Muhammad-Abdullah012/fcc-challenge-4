@@ -16,14 +16,12 @@ app.get("/", function (req, res) {
 
 app.post("/api/fileanalyse", upload.single("upfile"), (req, res) => {
   const { originalname, mimetype, size } = req.file;
-
   const metaData = {
     name: originalname,
     type: mimetype,
     size,
   };
   res.json(metaData);
-  console.log(req.file);
 });
 
 const port = process.env.PORT || 3000;
